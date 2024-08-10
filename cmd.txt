@@ -1,0 +1,14 @@
+$env:PYTHONPATH = "C:\Users\siddh\OneDrive\Documents\GitHub\mlproject"
+echo $env:PYTHONPATH
+export PYTHONPATH=/mnt/c/Users/siddh/OneDrive/Documents/GitHub/mlproject
+set PYTHONPATH=C:\Users\siddh\OneDrive\Documents\GitHub\mlproject
+
+echo $PYTHONPATH   # On Ubuntu/Linux/macOS
+echo %PYTHONPATH%  # On Windows Command Prompt
+echo $env:PYTHONPATH  # On Windows PowerShell
+
+python3 -m venv venv_sid
+
+source venv_sid/bin/activate
+pip install -r req.txt
+python src/components/data_ingestion.py

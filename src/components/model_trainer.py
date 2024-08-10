@@ -30,7 +30,7 @@ class ModelTrainer:
 
     def initiate_model_trainer(self,train_array,test_array):
         try:
-            logging.info("Split training and test input data")
+            logging.info(f"{__name__}: Split training and test input data")
             X_train,y_train,X_test,y_test=(
                 train_array[:,:-1],
                 train_array[:,-1],
@@ -48,7 +48,7 @@ class ModelTrainer:
             }
             params={
                 "Decision Tree": {
-                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
                     # 'splitter':['best','random'],
                     # 'max_features':['sqrt','log2'],
                 },
@@ -99,7 +99,7 @@ class ModelTrainer:
 
             if best_model_score<0.6:
                 raise CustomException("No best model found")
-            logging.info(f"Best found model on both training and testing dataset")
+            logging.info(f"Best found model on both training and testing dataset - {best_model_name}")
 
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,
